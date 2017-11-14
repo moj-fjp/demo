@@ -10,7 +10,7 @@ properties(
 def product = "divorce"
 def component = "recipe-backend"
 
-withPipeline("nodejs", product, component) {
+withPipeline("java", product, component) {
   after('checkout') {
   echo 'divorce-recipe-backend checked out'
   }
