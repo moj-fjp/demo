@@ -1,0 +1,17 @@
+#!groovy
+
+properties(
+  [[$class: 'GithubProjectProperty', projectUrlStr: 'https://github.com/moj-fjp/demo'],
+  pipelineTriggers([[$class: 'GitHubPushTrigger']])]
+)
+
+@Library("Infrastructure")
+
+def product = "divorce"
+def component = "recipe-backend"
+
+withPipeline("nodejs", product, component) {
+  after('checkout') {
+  echo 'divorce-recipe-backend checked out'
+  }
+}
